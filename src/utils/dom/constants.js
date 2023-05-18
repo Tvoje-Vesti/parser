@@ -45,6 +45,11 @@ export const WHITELIST_ATTRS = [
   'xlink:href',
   'width',
   'height',
+
+  // UROS:
+  // Video attrs
+  'poster',
+  'controls'
 ];
 
 export const WHITELIST_ATTRS_RE = new RegExp(
