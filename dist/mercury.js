@@ -363,7 +363,7 @@ var KEEP_SELECTORS = ['iframe[src^="https://www.youtube.com"]', 'iframe[src^="ht
 var STRIP_OUTPUT_TAGS = ['title', 'script', 'noscript', 'link', 'style', 'hr', 'embed', 'iframe', 'object']; // cleanAttributes
 var WHITELIST_ATTRS = ['src', 'srcset', 'sizes', 'type', 'href', 'class', 'id', 'alt', 'xlink:href', 'width', 'height', // UROS:
 // Video attrs
-'poster', 'controls', // video-js
+'poster', 'controls', 'playsinline', // video-js
 'data-thumbnail', 'data-setup', // viblast
 'data-viblast-key'];
 var WHITELIST_ATTRS_RE = new RegExp("^(".concat(WHITELIST_ATTRS.join('|'), ")$"), 'i'); // removeEmpty

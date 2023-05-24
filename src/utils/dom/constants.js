@@ -50,6 +50,7 @@ export const WHITELIST_ATTRS = [
   // Video attrs
   'poster',
   'controls',
+  'playsinline',
   // video-js
   'data-thumbnail',
   'data-setup',
