@@ -1577,8 +1577,7 @@ browser-process-hrtime@^1.0.0:
 
 "browser-request@github:postlight/browser-request#feat-add-headers-to-response":
   version "0.3.2"
-  resolved "https://codeload.github.com/postlight/browser-request/tar.gz/38faa5b85741aabfca61aa37d1ef044d68969ddf"
-  integrity sha512-VjjpQWfap4FTryBg4zFJThM8kTvNoSzHQhzEK/+GdLgknDhokx4Dt2IeN+lLyoeg/NGdBAt1lpvFl/AdtUEf8Q==
+  resolved "git+ssh://git@github.com/postlight/browser-request.git#38faa5b85741aabfca61aa37d1ef044d68969ddf"
   dependencies:
     http-headers "^3.0.1"
 
@@ -2781,8 +2780,7 @@ diffie-hellman@^5.0.0:
 
 "difflib@github:postlight/difflib.js":
   version "0.2.6"
-  resolved "https://codeload.github.com/postlight/difflib.js/tar.gz/32e8e38c7fcd935241b9baab71bb432fd9b166ed"
-  integrity sha512-OG2C++3YYIzflFjA9irnexBs9eUS6KUOViAssV4oSo4W8HAl86TV+DoFYhdSXVaFd4z5htsM3zzs64WJybH4cQ==
+  resolved "git+ssh://git@github.com/postlight/difflib.js.git#32e8e38c7fcd935241b9baab71bb432fd9b166ed"
   dependencies:
     heap ">= 0.2.0"
 

@@ -49,7 +49,12 @@ export const WHITELIST_ATTRS = [
   // UROS:
   // Video attrs
   'poster',
-  'controls'
+  'controls',
+  // video-js
+  'data-thumbnail',
+  'data-setup',
+  // viblast
+  'data-viblast-key',
 ];
 
 export const WHITELIST_ATTRS_RE = new RegExp(

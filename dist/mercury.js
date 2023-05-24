@@ -268,12 +268,10 @@ function fetchResource(_x, _x2) {
 }
 
 function _fetchResource() {
-  _fetchResource = _asyncToGenerator(
-  /*#__PURE__*/
-  _regeneratorRuntime.mark(function _callee(url, parsedUrl) {
+  _fetchResource = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee(url, parsedUrl) {
     var headers,
         options,
-        _ref2,
+        _yield$get,
         response,
         body,
         _args = arguments;
@@ -305,9 +303,9 @@ function _fetchResource() {
             return get(options);
 
           case 5:
-            _ref2 = _context.sent;
-            response = _ref2.response;
-            body = _ref2.body;
+            _yield$get = _context.sent;
+            response = _yield$get.response;
+            body = _yield$get.body;
             _context.prev = 8;
             validateResponse(response);
             return _context.abrupt("return", {
@@ -363,7 +361,11 @@ var KEEP_CLASS = 'mercury-parser-keep';
 var KEEP_SELECTORS = ['iframe[src^="https://www.youtube.com"]', 'iframe[src^="https://www.youtube-nocookie.com"]', 'iframe[src^="http://www.youtube.com"]', 'iframe[src^="https://player.vimeo"]', 'iframe[src^="http://player.vimeo"]', 'iframe[src^="https://www.redditmedia.com"]']; // A list of tags to strip from the output if we encounter them.
 
 var STRIP_OUTPUT_TAGS = ['title', 'script', 'noscript', 'link', 'style', 'hr', 'embed', 'iframe', 'object']; // cleanAttributes
-var WHITELIST_ATTRS = ['src', 'srcset', 'sizes', 'type', 'href', 'class', 'id', 'alt', 'xlink:href', 'width', 'height'];
+var WHITELIST_ATTRS = ['src', 'srcset', 'sizes', 'type', 'href', 'class', 'id', 'alt', 'xlink:href', 'width', 'height', // UROS:
+// Video attrs
+'poster', 'controls', // video-js
+'data-thumbnail', 'data-setup', // viblast
+'data-viblast-key'];
 var WHITELIST_ATTRS_RE = new RegExp("^(".concat(WHITELIST_ATTRS.join('|'), ")$"), 'i'); // removeEmpty
 
 var CLEAN_CONDITIONALLY_TAGS = ['ul', 'ol', 'table', 'div', 'button', 'form'].join(','); // cleanHeaders
@@ -1600,9 +1602,7 @@ var Resource = {
   //                  string.
   // :param headers: Custom headers to be included in the request
   create: function () {
-    var _create = _asyncToGenerator(
-    /*#__PURE__*/
-    _regeneratorRuntime.mark(function _callee(url, preparedResponse, parsedUrl) {
+    var _create = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee(url, preparedResponse, parsedUrl) {
       var headers,
           result,
           validResponse,
@@ -1722,9 +1722,7 @@ var Resource = {
   }
 };
 
-var _marked =
-/*#__PURE__*/
-_regeneratorRuntime.mark(range);
+var _marked = /*#__PURE__*/_regeneratorRuntime.mark(range);
 
 function range() {
   var start,
@@ -2024,13 +2022,16 @@ var NewYorkerExtractor = {
 var WiredExtractor = {
   domain: 'www.wired.com',
   title: {
-    selectors: ['h1[data-testId="ContentHeaderHed"]']
+    selectors: ['h1[data-testId="ContentHeaderHed"]' // enter title selectors
+    ]
   },
   author: {
-    selectors: [['meta[name="article:author"]', 'value'], 'a[rel="author"]']
+    selectors: [['meta[name="article:author"]', 'value'], 'a[rel="author"]' // enter author selectors
+    ]
   },
   content: {
-    selectors: ['article.article.main-content', 'article.content'],
+    selectors: ['article.article.main-content', 'article.content' // enter content selectors
+    ],
     // Is there anything in the content you selected that needs transformed
     // before it's consumable content? E.g., unusual lazy loaded images
     transforms: [],
@@ -2058,13 +2059,16 @@ var WiredExtractor = {
 var MSNExtractor = {
   domain: 'www.msn.com',
   title: {
-    selectors: ['h1']
+    selectors: ['h1' // enter title selectors
+    ]
   },
   author: {
-    selectors: ['span.authorname-txt']
+    selectors: ['span.authorname-txt' // enter author selectors
+    ]
   },
   content: {
-    selectors: ['div.richtext'],
+    selectors: ['div.richtext' // enter content selectors
+    ],
     // Is there anything in the content you selected that needs transformed
     // before it's consumable content? E.g., unusual lazy loaded images
     transforms: [],
@@ -2092,10 +2096,12 @@ var MSNExtractor = {
 var YahooExtractor = {
   domain: 'www.yahoo.com',
   title: {
-    selectors: ['header.canvas-header']
+    selectors: ['header.canvas-header' // enter title selectors
+    ]
   },
   author: {
-    selectors: ['span.provider-name']
+    selectors: ['span.provider-name' // enter author selectors
+    ]
   },
   content: {
     selectors: [// enter content selectors
@@ -2129,10 +2135,12 @@ var BuzzfeedExtractor = {
   domain: 'www.buzzfeed.com',
   supportedDomains: ['www.buzzfeednews.com'],
   title: {
-    selectors: ['h1.embed-headline-title']
+    selectors: ['h1.embed-headline-title' // enter title selectors
+    ]
   },
   author: {
-    selectors: ['a[data-action="user/username"]', 'byline__author', ['meta[name="author"]', 'value']]
+    selectors: ['a[data-action="user/username"]', 'byline__author', ['meta[name="author"]', 'value'] // enter author selectors
+    ]
   },
   content: {
     selectors: [['div[class^="featureimage_featureImageWrapper"]', '.js-subbuzz-wrapper'], ['.js-subbuzz-wrapper']],
@@ -2174,13 +2182,16 @@ var BuzzfeedExtractor = {
 var WikiaExtractor = {
   domain: 'fandom.wikia.com',
   title: {
-    selectors: ['h1.entry-title']
+    selectors: ['h1.entry-title' // enter title selectors
+    ]
   },
   author: {
-    selectors: ['.author vcard', '.fn']
+    selectors: ['.author vcard', '.fn' // enter author selectors
+    ]
   },
   content: {
-    selectors: ['.grid-content', '.entry-content'],
+    selectors: ['.grid-content', '.entry-content' // enter content selectors
+    ],
     // Is there anything in the content you selected that needs transformed
     // before it's consumable content? E.g., unusual lazy loaded images
     transforms: [],
@@ -2208,10 +2219,12 @@ var WikiaExtractor = {
 var LittleThingsExtractor = {
   domain: 'www.littlethings.com',
   title: {
-    selectors: ['h1[class*="PostHeader"]', 'h1.post-title']
+    selectors: ['h1[class*="PostHeader"]', 'h1.post-title' // enter title selectors
+    ]
   },
   author: {
-    selectors: ['div[class^="PostHeader__ScAuthorNameSection"]', ['meta[name="author"]', 'value']]
+    selectors: ['div[class^="PostHeader__ScAuthorNameSection"]', ['meta[name="author"]', 'value'] // enter author selectors
+    ]
   },
   content: {
     selectors: [// enter content selectors
@@ -2665,7 +2678,8 @@ var WwwThevergeComExtractor = {
     // Is there anything that is in the result that shouldn't be?
     // The clean selectors will remove anything that matches from
     // the result
-    clean: ['.aside', 'img.c-dynamic-image']
+    clean: ['.aside', 'img.c-dynamic-image' // images come from noscript transform
+    ]
   }
 };
 
@@ -3409,7 +3423,8 @@ var WwwThepoliticalinsiderComExtractor = {
     ]
   },
   lead_image_url: {
-    selectors: [['meta[name="og:image"]', 'value']]
+    selectors: [['meta[name="og:image"]', 'value'] // enter selectors
+    ]
   },
   content: {
     selectors: ['div#article-body'],
@@ -4787,7 +4802,8 @@ var WwwRedditComExtractor = {
   content: {
     selectors: [['div[data-test-id="post-content"] p'], // text post
     ['div[data-test-id="post-content"] a[target="_blank"]:not([data-click-id="timestamp"])', // external link
-    'div[data-test-id="post-content"] div[data-click-id="media"]'], // external link with media preview (YouTube, imgur album, etc...)
+    'div[data-test-id="post-content"] div[data-click-id="media"]' // embedded media
+    ], // external link with media preview (YouTube, imgur album, etc...)
     ['div[data-test-id="post-content"] div[data-click-id="media"]'], // Embedded media (Reddit video)
     ['div[data-test-id="post-content"] a'], // external link
     'div[data-test-id="post-content"]'],
@@ -7846,6 +7862,12 @@ var RootExtractor = {
       };
     }
 
+    var extendedResults = {};
+
+    if (extractor.extend) {
+      extendedResults = selectExtendedTypes(extractor.extend, opts);
+    }
+
     var title = extractResult(_objectSpread({}, opts, {
       type: 'title'
     }));
@@ -7894,12 +7916,6 @@ var RootExtractor = {
         url = _ref3.url,
         domain = _ref3.domain;
 
-    var extendedResults = {};
-
-    if (extractor.extend) {
-      extendedResults = selectExtendedTypes(extractor.extend, opts);
-    }
-
     return _objectSpread({
       title: title,
       content: content,
@@ -7922,9 +7938,7 @@ function collectAllPages(_x) {
 }
 
 function _collectAllPages() {
-  _collectAllPages = _asyncToGenerator(
-  /*#__PURE__*/
-  _regeneratorRuntime.mark(function _callee(_ref) {
+  _collectAllPages = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee(_ref) {
     var next_page_url, html, $, metaCache, result, Extractor, title, url, pages, previousUrls, extractorOpts, nextPageResult, word_count;
     return _regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
@@ -7990,9 +8004,7 @@ function _collectAllPages() {
 
 var Parser = {
   parse: function () {
-    var _parse = _asyncToGenerator(
-    /*#__PURE__*/
-    _regeneratorRuntime.mark(function _callee(url) {
+    var _parse = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee(url) {
       var _ref,
           html,
           opts,
