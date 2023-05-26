@@ -358,7 +358,7 @@ var SPACER_RE = new RegExp('transparent|spacer|blank', 'i'); // The class we wil
 // but would normally remove
 
 var KEEP_CLASS = 'mercury-parser-keep';
-var KEEP_SELECTORS = ['iframe[src^="https://www.youtube.com"]', 'iframe[src^="https://www.youtube-nocookie.com"]', 'iframe[src^="http://www.youtube.com"]', 'iframe[src^="https://player.vimeo"]', 'iframe[src^="http://player.vimeo"]', 'iframe[src^="https://www.redditmedia.com"]']; // A list of tags to strip from the output if we encounter them.
+var KEEP_SELECTORS = ['iframe[src^="https://www.youtube.com"]', 'iframe[src^="https://www.youtube-nocookie.com"]', 'iframe[src^="http://www.youtube.com"]', 'iframe[src^="https://player.vimeo"]', 'iframe[src^="http://player.vimeo"]', 'iframe[src^="https://www.redditmedia.com"]', 'iframe[src^="https://www.instagram.com"]']; // A list of tags to strip from the output if we encounter them.
 
 var STRIP_OUTPUT_TAGS = ['title', 'script', 'noscript', 'link', 'style', 'hr', 'embed', 'iframe', 'object']; // cleanAttributes
 var WHITELIST_ATTRS = ['src', 'srcset', 'sizes', 'type', 'href', 'class', 'id', 'alt', 'xlink:href', 'width', 'height', // UROS:
