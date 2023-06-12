@@ -6347,6 +6347,22 @@ function clean$1(leadImageUrl) {
 
   if (validUrl.isWebUri(leadImageUrl)) {
     return leadImageUrl;
+  } // Handle cases where url has relative schema.
+  // Optimistically use https
+
+
+  if (leadImageUrl.startsWith("//")) {
+    var httpsUrl = "https:".concat(leadImageUrl);
+
+    if (validUrl.isWebUri(httpsUrl)) {
+      return httpsUrl;
+    }
+
+    var httpUrl = "http:".concat(leadImageUrl);
+
+    if (validUrl.isWebUri(httpUrl)) {
+      return httpUrl;
+    }
   }
 
   return null;
