@@ -14,6 +14,9 @@ export const KEEP_SELECTORS = [
   'iframe[src^="https://www.redditmedia.com"]',
   'iframe[src^="https://www.instagram.com"]',
 
+  // Uros: Allowed iframe selectors.
+  'iframe[src^="https://www.b92.net"]',
+
   // Uros
   'div[id^="Brid_"]',
 ];
@@ -60,9 +63,10 @@ export const WHITELIST_ATTRS = [
   'data-setup',
   // viblast
   'data-viblast-key',
-  // custom TvojeVesti video attributes
-  'data-tv-video-content-url',
-  'data-tv-video-thumbnail-url',
+  // iframe stuff
+  'webkitallowfullscreen', 
+  'mozallowfullscreen', 
+  'allowfullscreen',
 ];
 
 export const WHITELIST_ATTRS_RE = new RegExp(
