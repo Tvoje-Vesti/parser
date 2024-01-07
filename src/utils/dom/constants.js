@@ -13,6 +13,9 @@ export const KEEP_SELECTORS = [
   'iframe[src^="http://player.vimeo"]',
   'iframe[src^="https://www.redditmedia.com"]',
   'iframe[src^="https://www.instagram.com"]',
+
+  // Uros
+  'div[id^="Brid_"]',
 ];
 
 // A list of tags to strip from the output if we encounter them.
@@ -57,6 +60,9 @@ export const WHITELIST_ATTRS = [
   'data-setup',
   // viblast
   'data-viblast-key',
+  // custom TvojeVesti video attributes
+  'data-tv-video-content-url',
+  'data-tv-video-thumbnail-url',
 ];
 
 export const WHITELIST_ATTRS_RE = new RegExp(
