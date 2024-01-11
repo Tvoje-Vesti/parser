@@ -19,6 +19,7 @@ export const KEEP_SELECTORS = [
 
   // Uros
   'div[id^="Brid_"]',
+  'video',
 ];
 
 // A list of tags to strip from the output if we encounter them.
